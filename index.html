@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contáctanos</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+emailjs.init({
+
+publicKey:"52RQn9o9FOTKbVASv"
+
+});
+</script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="card" id="registerCard">
+            <h2>Contáctanos</h2>
+            <p class="subtitle">Ingresa tus datos para que estemos en contacto.</p>
+            
+            <form id="registerForm">
+                <div class="input-group">
+                    <input type="text" id="nombre" required placeholder=" ">
+                    <label for="nombre">Nombre</label>
+                </div>
+                
+                <div class="input-group">
+                    <input type="text" id="apellido" required placeholder=" ">
+                    <label for="apellido">Apellido</label>
+                </div>
+                
+                <div class="input-group">
+                    <input type="email" id="email" required placeholder=" ">
+                    <label for="email">Correo Electrónico</label>
+                </div>
+
+                 <div class="input-group">
+                    <input type="tel" id="telefono" placeholder=" ">
+                    <label for="telefono">Teléfono</label>
+                </div>
+                
+                <div class="input-group">
+                    <input type="text" id="asunto" required placeholder=" ">
+                    <label for="asunto">Asunto</label>
+                </div>
+                
+                <div class="input-group">
+                    <textarea id="mensaje" required placeholder=" " rows="5"></textarea>
+                    <label for="mensaje">Mensaje</label>
+                </div>
+                <!-- RECAPTCHA SITEKEY -->
+                <div class="g-recaptcha" data-sitekey="6Ld_tSMtAAAAAG38wx52monGXT3WggCRg6jSPlc4"></div>
+                <button type="submit" class="btn-submit">Enviar Mensaje</button>
+            </form>
+        </div>
+
+        <!-- Tarjeta de Éxito -->
+        <div class="card welcome-card hidden" id="welcomeCard">
+            <div class="icon-success">✓</div>
+            <h2 id="welcomeTitle">¡Mensaje Enviado!</h2>
+            <p id="welcomeMessage">Tu mensaje se ha enviado con éxito. Nos pondremos en contacto contigo pronto.</p>
+        </div>
+    </div>
+
+     <script src="script.js"></script>
+    <!-- RECAPTCHA src -->
+   <script src="https://www.google.com/recaptcha/api.js"></script>
+</body>
+</html>

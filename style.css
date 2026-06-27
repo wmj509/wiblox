@@ -1,0 +1,228 @@
+/* --- Reseteo y Variables --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --primary: #6c5ce7;
+    --secondary: #a29bfe;
+    --bg-gradient: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --card-border: rgba(255, 255, 255, 0.2);
+    --text-main: #ffffff;
+    --text-muted: #f0f0f0;
+}
+
+/* --- Fondo Animado --- */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--bg-gradient);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- Contenedor Principal --- */
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+}
+
+/* --- Estilo de Tarjeta (Glassmorphism) --- */
+.card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--card-border);
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    color: var(--text-main);
+    transition: all 0.5s ease;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: center;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-bottom: 35px;
+    opacity: 0.8;
+}
+
+/* --- Campos de Entrada Animados --- */
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    outline: none;
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* Efecto focus en inputs */
+.input-group input:focus,
+.input-group input:not(:placeholder-shown) {
+    border-color: var(--secondary);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 10px rgba(162, 155, 254, 0.3);
+}
+
+/* Etiquetas flotantes */
+.input-group label {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    pointer-events: none;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+}
+
+.input-group input:focus ~ label,
+.input-group input:not(:placeholder-shown) ~ label {
+    top: -12px;
+    left: 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--secondary);
+    opacity: 1;
+}
+
+/* --- Botón de Enviar --- */
+.btn-submit {
+    width: 100%;
+    padding: 14px;
+    background: #ffffff;
+    border: none;
+    border-radius: 12px;
+    color: var(--primary);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.btn-submit:hover {
+    background: var(--primary);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4);
+}
+
+.btn-submit:active {
+    transform: translateY(1px);
+}
+
+/* --- Tarjeta de Bienvenida y Animaciones --- */
+.welcome-card {
+    text-align: center;
+}
+
+.icon-success {
+    width: 70px;
+    height: 70px;
+    background: rgba(35, 213, 171, 0.2);
+    border: 2px solid #23d5ab;
+    color: #23d5ab;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    margin: 0 auto 20px auto;
+    animation: pop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.hidden {
+    display: none;
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.fade-out {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+}
+
+.fade-in {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+@keyframes pop {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+}
+/* ==================== AJUSTES PARA EL FORMULARIO DE CONTACTO ==================== */
+
+/* Soporte para Textarea */
+.input-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    outline: none;
+    color: #fff;
+    font-size: 1rem;
+    resize: vertical;
+    min-height: 120px;
+    transition: all 0.3s ease;
+}
+
+.input-group textarea:focus,
+.input-group textarea:not(:placeholder-shown) {
+    border-color: var(--secondary);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 10px rgba(162, 155, 254, 0.3);
+}
+
+/* Ajuste de label para textarea */
+.input-group textarea:focus ~ label,
+.input-group textarea:not(:placeholder-shown) ~ label {
+    top: -12px;
+    left: 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--secondary);
+}
+
+/* Estado del botón al enviar */
+.btn-submit:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
